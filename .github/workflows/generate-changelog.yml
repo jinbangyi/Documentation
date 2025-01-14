@@ -25,10 +25,7 @@ jobs:
                 gem install github_changelog_generator
 
             - name: Generate changelog
-              run: github_changelog_generator \
-                    -u ${{ github.repository_owner }} \
-                    -p ${{ github.event.repository.name }} \
-                    --token ${{ secrets.GITHUB_TOKEN }}
+              run: github_changelog_generator --user ${{ github.repository_owner }} --project ${{ github.event.repository.name }} --token ${{ secrets.GITHUB_TOKEN }}
 
             - name: Commit Changelog
               uses: stefanzweifel/git-auto-commit-action@v5
